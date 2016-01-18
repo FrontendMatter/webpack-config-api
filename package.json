@@ -1,0 +1,34 @@
+{
+  "name": "webpack-config-api",
+  "version": "0.1.0",
+  "description": "Fluent API for managing Webpack configuration files.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "babel -d ./dist --watch --presets es2015 ./lib",
+    "build": "babel -d ./dist --presets es2015 ./lib"
+  },
+  "author": "Laza Bogdan",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.0.0",
+    "require-linked-peer": "^0.1.0",
+    "resolve": "^1.1.6",
+    "webpack-query-string": "github:lazabogdan/webpack-query-string"
+  },
+  "main": "dist/index.js",
+  "devDependencies": {
+    "babel-cli": "^6.4.0",
+    "babel-preset-es2015": "^6.3.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themekit/webpack-config-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/themekit/webpack-config-api/issues"
+  },
+  "homepage": "https://github.com/themekit/webpack-config-api#readme",
+  "keywords": [
+    "webpack-config"
+  ]
+}
