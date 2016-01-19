@@ -15,18 +15,23 @@ module.exports = function (loaderOptions, babelOptions) {
 	var plugins = (babelOptions && typeof babelOptions.plugins !== 'undefined' ? babelOptions.plugins : ['transform-runtime']).map(function(plugin) {
 		return resolveLink('babel-plugin-' + plugin)
 	})
-	return this.addLoader(
-		this.extend({
-			test: /\.js$/,
-			loader: 'babel!eslint',
-			exclude: [],
-			include: [ this.srcPath() ]
-		}, loaderOptions || {})
-	)
-	.webpack({
-		babel: {
-			presets: presets,
-			plugins: plugins
-		}
+
+	this.once('config', function () {
+		this.addLoader(
+			this.extend({
+				test: /\.js$/,
+				loader: 'babel!eslint',
+				exclude: [],
+				include: [ this.srcPath() ]
+			}, loaderOptions || {})
+		)
+		.webpack({
+			babel: {
+				presets: presets,
+				plugins: plugins
+			}
+		})
 	})
+
+	return this
 }

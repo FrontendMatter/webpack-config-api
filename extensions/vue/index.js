@@ -36,7 +36,7 @@ function extract () {
 		const styleLoaders = ['css', 'less', 'sass']
 		const plugin = this.getPlugin('ExtractTextPlugin')
 		styleLoaders.forEach(function (loaderName) {
-			var vueLoaders = this.config.vue.loaders[loaderName].split('!')
+			var vueLoaders = this.instOptions.webpack.vue.loaders[loaderName].split('!')
 			this.instOptions.webpack.vue.loaders[loaderName] = ExtractTextPlugin.extract(
 				vueLoaders.shift(), 
 				vueLoaders.join('!'), 

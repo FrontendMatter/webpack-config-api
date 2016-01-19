@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fluent API for managing Webpack configuration files.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

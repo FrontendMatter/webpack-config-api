@@ -36,14 +36,14 @@ function extract () {
 		}
 		Object.keys(styleLoadersMap).forEach(function (loaderName) {
 			var extension = styleLoadersMap[loaderName]
-			this.getLoadersByExtension(extension, this.config).forEach(function (loader) {
+			this.getLoadersByExtension(extension, this.instOptions.webpack).forEach(function (loader) {
 				var styleLoaders = loader.loader.loader.split('!')
 				loader.loader.loader = ExtractTextPlugin.extract(
 					styleLoaders.shift(), 
 					styleLoaders.join('!'), 
 					this.instOptions.plugins.plugin.ExtractTextPlugin.options
 				)
-				this.config.module.loaders[loader.index] = loader.loader
+				this.instOptions.webpack.module.loaders[loader.index] = loader.loader
 			}, this)
 		}, this)
 	}

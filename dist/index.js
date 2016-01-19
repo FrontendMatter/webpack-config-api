@@ -637,6 +637,7 @@ var WebpackConfig = function (_EventEmitter) {
 		value: function getConfig() {
 			var _this4 = this;
 
+			this.emit('config');
 			this.extendConfig(this.instOptions.webpack);
 			// output path
 			var outputPath = [this.instOptions.distPath];
@@ -656,7 +657,6 @@ var WebpackConfig = function (_EventEmitter) {
 					_this4.config.plugins.push(plugin.plugin);
 				});
 			}
-			this.emit('config');
 			return this.config;
 		}
 
