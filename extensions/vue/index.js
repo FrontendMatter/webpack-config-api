@@ -1,6 +1,3 @@
-var requireLink = require('require-linked-peer')
-var ExtractTextPlugin = requireLink('extract-text-webpack-plugin')
-
 module.exports = function (options) {
 	// cleanup
 	this.removeListener('config', extract)
@@ -33,6 +30,8 @@ module.exports = function (options) {
  */
 function extract () {
 	if (this.hasPlugin('ExtractTextPlugin')) {
+		var requireLink = require('require-linked-peer')
+		var ExtractTextPlugin = requireLink('extract-text-webpack-plugin')
 		const styleLoaders = ['css', 'less', 'sass']
 		const plugin = this.getPlugin('ExtractTextPlugin')
 		styleLoaders.forEach(function (loaderName) {
